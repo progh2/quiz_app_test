@@ -20,6 +20,12 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
+    for(int i =0; i < widget.quizs.length; i ++){
+      print(widget.quizs[i].title);
+      for(int j = 0; j < widget.quizs[i].candidates.length; j++){
+        print(widget.quizs[i].candidates[j]);
+      }
+    }
     Size screenSize = MediaQuery.of(context).size;
     double width = screenSize.width;
     double height = screenSize.height;
@@ -32,7 +38,7 @@ class _QuizScreenState extends State<QuizScreen> {
               border:Border.all(color:Colors.deepPurple),
             ),
             width : width * 0.85,
-            height:height * 0.5,
+            height:height * 0.7,
               child: Swiper(
                   physics: NeverScrollableScrollPhysics(),
                   loop:false,
