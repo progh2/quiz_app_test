@@ -38,7 +38,7 @@ class _QuizScreenState extends State<QuizScreen> {
               border:Border.all(color:Colors.deepPurple),
             ),
             width : width * 0.85,
-            height:height * 0.7,
+            height:height * 0.8,
               child: Swiper(
                   physics: NeverScrollableScrollPhysics(),
                   loop:false,
@@ -63,7 +63,7 @@ class _QuizScreenState extends State<QuizScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            padding:EdgeInsets.fromLTRB(0, width* 0.024, 0, width * 0.024),
+            padding:EdgeInsets.fromLTRB(0, width* 0.024, 0, width * 0.012),
             child: Text(
                 'Q' + (_currentIndex + 1).toString() + '.',
             style:TextStyle(
@@ -80,6 +80,10 @@ class _QuizScreenState extends State<QuizScreen> {
           ),
           Expanded(child: Container(), ),
           Column(children: _buildCandidates(width, quiz),),
+          Container(
+            padding: EdgeInsets.all(width * 0.012),
+            //child: Center(child:ButtonTheme(minWidth: width * 0.5,),)
+          )
         ],
       )
     );
@@ -91,14 +95,16 @@ class _QuizScreenState extends State<QuizScreen> {
       _children.add(
         CandWidget(index:i, text:quiz.candidates[i], width:width, answerState: _answerState[i],
             tap:(){ setState(() {
-          for(int j = 0 ;j < 4; j ++){
-            if(j == i){
-              _answerState[j] = true;
-              _answers[_currentIndex] = j;
-            }else{
-              _answerState[j] = false;
-            }
-          }
+              for(int j = 0 ;j < 4; j ++){
+                if(j == i){
+                  _answerState[j] = true;
+                  _answers[_currentIndex] = j;
+                  //print(_answers[_currentIndex]);
+                  //print(width);
+                }else{
+                  _answerState[j] = false;
+                }
+              }
         });})
       );
       _children.add(Padding(padding:EdgeInsets.all(width * 0.024), ));

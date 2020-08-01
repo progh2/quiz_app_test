@@ -5,5 +5,5 @@ class Quiz{
 
   Quiz({ this.title, this.candidates, this.answer });
 
-  Quiz.fromMap(Map<String, dynamic> map) : title = map['title'], candidates = map['candiate'], answer = map['answer'];
+  Quiz.fromMap(Map<String, dynamic> map) : title = map['title'], candidates = map['candidates'], answer = map['answer'];
 }
